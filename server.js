@@ -47,6 +47,7 @@ io.on('connection', (socket) => {
         socket.join(roomid);
         socket.to(roomid).broadcast.emit('user-connected', id, myname);
         socket.on('tellName', (myname) => {
+            console.log(myname);
             socket.to(roomid).broadcast.emit('AddName', myname);
         });
         socket.on('disconnect', () => {
